@@ -1,0 +1,25 @@
+(draft) 
+
+= Evolving Interoperable Extensions = 
+
+== Motivation ==
+
+I developed an extension, the PIP, and it was retained as non-public in the Addons.mozilla.org directory because I have used a good number of JavaScript variables and kept in the global namespace. I learned recently, and found very interesting, that AMO reviewers are recommending developers to write extensions with more protected or encapsulated variables and avoid using extension global variables in the global object namespace.  
+
+At this point this effort goes on with documentation and development pattern. I have not yet seen an extension validator, but I find a great opportunity for Mozilla or developers to support this cause. An extension validator service or tool could check and define an extension ranking and support meta-data documentation in the directory too ( AMO .) 
+
+== Tools to check global variables  ==
+
+One recommended approach is to use JavaScript to detect. 
+
+=== DOM Inspector === 
+
+DOM Inspector is still a recommended tool to inspect chrome in Firefox. 
+
+* https://addons.mozilla.org/en-US/firefox/addon/1806
+
+== Resources and Recommendations ==
+
+If you are writing a new extension and discovered you have a tendency to write global JS variables, please read [http://blogger.ziesemer.com/2007/10/respecting-javascript-global-namespace.html Mark's Plea to Respecting Global JS Namespace] 
+
+* http://blogger.ziesemer.com/2007/10/respecting-javascript-global-namespace.html
