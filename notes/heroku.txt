@@ -1,0 +1,7 @@
+Taboca Heroku app 
+http://taboca.heroku.com/
+
+GitHub Private Repository
+https://github.com/taboca/rails-case-app-with-heroku/tree/master
+
+
