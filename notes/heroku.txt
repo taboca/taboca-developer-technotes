@@ -4,4 +4,50 @@ http://taboca.heroku.com/
 GitHub Private Repository
 https://github.com/taboca/rails-case-app-with-heroku/tree/master
 
+Forum and Community
+http://wiki.rubyonrails.org/rails/pages/IRC
+
+Using GIT with Heroku 
+
+You can also use GIT and the heroku shell script-based API to interact with your Heroku framework on the server. 
+
+== Setup your local 'heroku' shell script == 
+
+* gem install heroku ( make sure you have priviledges to write in your local filesystem ) 
+* heroku clone [yourappname] 
+* Do your edits
+
+== Interact with the server framework, Heroky interaction API == 
+
+* Documentation is here - http://heroku.com/docs/api/index.html
+
+
+
+== Setup to Dabase from Heroku online == 
+
+ EDIT ME REFERENCE DOC 
+
+Data Import
+
+After you've imported your app's code and schema via the method above, run your migrations, then follow the instructions below to import your data.
+
+   1. Install the YamlDB plugin into your local app:
+
+      script/plugin install git://github.com/adamwiggins/yaml_db.git
+
+   2. Run
+
+      rake db:data:dump
+
+   3. Edit your Heroku app and open the context menu for the db directory. Select Upload, and upload db/data.yml from your local filesystem.
+   4. Use the gear menu to open a rake console, and type
+
+      db:data:load
+
+   5. Go to the Data tab to confirm your data loaded correctly.
+
+
+
+
+
 
