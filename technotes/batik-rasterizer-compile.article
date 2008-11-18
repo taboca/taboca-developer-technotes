@@ -29,6 +29,8 @@ Now create a new directory for your project and place the Batik and the batikras
 
 Notice these are some of the batik lib files you may need. If you get other errors you may consider adding more of the jar files to your lib direcoty and put them here in the classpath. 
 
+{{{
+
  <?xml version="1.0"?>
  <project name="fftheme" default="gera-png" basedir=".">
       <taskdef name="rasterize" classname="org.apache.tools.ant.taskdefs.optional.RasterizerTask" >
@@ -68,6 +70,7 @@ Notice these are some of the batik lib files you may need. If you get other erro
       </rasterize>
  </project>
 
+}}}
 
 == Troubles? == 
 
