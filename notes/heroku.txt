@@ -1,8 +1,7 @@
-Taboca Heroku app 
+= Building a Rails app with Heroku = 
+ 
+This tutorial has a sort of full cycle to launch and maintain a very small app in Heroku.  
 http://taboca.heroku.com/
-
-GitHub Private Repository
-https://github.com/taboca/rails-case-app-with-heroku/tree/master
 
 Forum and Community
 http://wiki.rubyonrails.org/rails/pages/IRC
@@ -16,12 +15,22 @@ You can also use GIT and the heroku shell script-based API to interact with your
 * gem install heroku ( make sure you have priviledges to write in your local filesystem ) 
 * heroku clone [yourappname] 
 * Do your edits
+* 
 
 == Interact with the server framework, Heroky interaction API == 
 
 * Documentation is here - http://heroku.com/docs/api/index.html
 
+== Creating a Controller == 
 
+From your local environment, access the app root directory ( ~app/.. ) and run the generate command to get files for a controller: 
+
+ * ./script/generate controller Test
+
+== Git Commmit your changes == 
+
+ * git commit -m "My initial controller " 
+ * git push 
 
 == Setup to Dabase from Heroku online == 
 
@@ -47,7 +56,13 @@ After you've imported your app's code and schema via the method above, run your 
    5. Go to the Data tab to confirm your data loaded correctly.
 
 
+== Preparing a local database with YAML ==
 
 
+ * Reference - http://www.railslodge.com/plugins/830-yaml-db
 
+== Checking Database support in your local rails == 
 
+== References ==
+
+ * http://www.onlamp.com/pub/a/onlamp/2005/01/20/rails.html?page=2

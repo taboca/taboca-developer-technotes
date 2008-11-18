@@ -1,6 +1,8 @@
 = Rails Setup on my Mac OSX MacBook = 
 
-* sh-3.2# gem install -v=2.1 rails
+* gem install -v=2.1 rails
+* Rails installed fine
+* script/server -p 3000 worked good 
 
 
 

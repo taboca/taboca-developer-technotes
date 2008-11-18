@@ -1,0 +1,13 @@
+== Text Processing and RE use with Python ==
+
+This sample showcases the use of the RE standard module in python.
+
+
+== Sample ==
+
+ * [samples/text2.py] 
+
+== References ==
+
+ * http://www.ibm.com/developerworks/linux/library/l-python5.html 
+ * http://www.python.org/doc/2.5.2/lib/module-re.html 
