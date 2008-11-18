@@ -5,7 +5,7 @@ CPAN is a repository of installation libraries for PERL and also a shell to supp
 == Installing Text::Wikitext ==
 
  * perl -MCPAN -e 'shell' 
- * install Text::Wikitext
+ * install Text::WikiText
  * // This should get the Wikitext-perl-1.01.tar.gz and install it
 
 == References == 
