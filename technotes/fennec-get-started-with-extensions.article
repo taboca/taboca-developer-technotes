@@ -1,0 +1,27 @@
+= Get started with Extension Development in Fennec =
+
+This technote came out as I started learning how to write an extension for Fennec. I will cover here an extension case, and also the advice on good environment to build your extension, the key differences between Fennec extension development and Firefox extension development, and some other related aspects for someone willing to mutate Fennec. Feel free to send input about this article since I can review. 
+
+== Setup the Basic Environment ==
+
+The current target platform to run Fennec is to have a Nokia N810 ( OS2008 / Maemo ) device. However if you don't have you can get an environment up and running with your existing Linux, Mac OSX, or Windows. 
+
+ * [http://www.mozilla.org/projects/fennec/1.0a1/releasenotes/#start Grab a Linux, Mac or Windows XULRUnner-based version]
+
+
+== Basics about Fennec in terms of infrastructure ==
+
+Fennec has: 
+
+ * 
+
+
+== Other reading ==
+
+There is some work going related to porting XULRunner for Windows Mobile, which would allow developers to put their apps working with XULRunner, or run Fennec, or other things. [https://wiki.mozilla.org/Mobile/Build/WinMobile6_XULRunner_BrainDump_20080630 Check the discussion from Mozilla Mobile wiki].
+
+== References ==
+
+ * [http://www.mozilla.org/projects/fennec/1.0a1/releasenotes/ Fenned 1.0a1 release notes]
+ * [https://wiki.mozilla.org/Mobile Mobilla Mozila project wiki page] 
+
