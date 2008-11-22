@@ -1,0 +1,6 @@
+== Access the User's Desktop path ==
+
+== References ==
+
+ * https://developer.mozilla.org/en/Code_snippets/File_I%2F%2FO
+ * [http://www.xulplanet.com/references/xpcomref/ifaces/nsIFile.html nsIFile documentation] 
