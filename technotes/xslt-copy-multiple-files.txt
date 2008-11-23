@@ -1,0 +1,18 @@
+
+== Using XSLT to Generate Multiple files witn ANT ==
+
+Let's say you have an imported XML file with lots of blog posts, as an example content data from wordpress. You can use XSLT result-document element to generate final new files from each entry in the XML. 
+
+THe result-document element is part of XSLR 2.0 specification. Current ANT 1.7 does not include a XSLT 2 processor so you may need to add a different processor. The ANT-based xslt task supports the processor attribute and you will also need to get the external processor and assign its lib jar in the classpath attribute. See the following example: 
+
+ <xslt processor="trax" classPath="lib/saxon9.jar" includes="*.xml" basedir="src" destdir="output" extensi
+on=".html" style="style/document.xsl">
+ </xslt>
+
+ * In this case I am using Saxon 9. I have also downloaded the Saxon ant task jar but I am not sure if this approach uses it. 
+
+== References ==
+
+ * [http://www.w3schools.com/XSL/el_copy-of.asp XSLT copy-of]
+ * [http://www.xml.com/pub/a/2002/04/10/xslt2.html What is New in XSLT 2]
+
