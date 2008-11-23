@@ -1,5 +1,7 @@
 = Get started with Extension Development in Fennec =
 
+ * by Marcio Galli 
+
 This technote came out as I started learning how to write an extension for Fennec. I will cover here an extension case, and also the advice on good environment to build your extension, the key differences between Fennec extension development and Firefox extension development, and some other related aspects for someone willing to mutate Fennec. Feel free to send input about this article since I can review. 
 
 == Setup the Basic Environment ==
