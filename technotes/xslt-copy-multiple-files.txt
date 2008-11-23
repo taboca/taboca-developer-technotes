@@ -1,7 +1,7 @@
 
 == Using XSLT to Generate Multiple files witn ANT ==
 
-Let's say you have an imported XML file with lots of blog posts, as an example content data from wordpress. You can use XSLT result-document element to generate final new files from each entry in the XML. 
+Let's say you have an imported XML file with lots of blog posts, as an example content data from wordpress. You can use XSLT-based element named result-document to generate final new files from each entry in the XML. 
 
 THe result-document element is part of XSLR 2.0 specification. Current ANT 1.7 does not include a XSLT 2 processor so you may need to add a different processor. The ANT-based xslt task supports the processor attribute and you will also need to get the external processor and assign its lib jar in the classpath attribute. See the following example: 
 
@@ -11,8 +11,36 @@ on=".html" style="style/document.xsl">
 
  * In this case I am using Saxon 9. I have also downloaded the Saxon ant task jar but I am not sure if this approach uses it. 
 
+
+== XSLT script example using result-document ==
+
+ <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
+
+ <xsl:output method="html" indent="yes"/>
+
+ <xsl:template match="/">
+
+ <xsl:apply-templates select="//item" />
+
+ </xsl:template>
+
+ <xsl:template match="//item">
+
+   <xsl:variable name="uri" select="concat('text', position(), '.xml')"/>
+    <xsl:result-document href="{$uri}" omit-xml-declaration="no" >
+      <xsl:text disable-output-escaping="yes"><![CDATA[<?xml version="1.0" ?> ]]>
+      </xsl:text>
+      <xsl:value-of select="./title/." />
+    </xsl:result-document>
+
+ </xsl:template>
+ </xsl:stylesheet>
+
+  
+
 == References ==
 
  * [http://www.w3schools.com/XSL/el_copy-of.asp XSLT copy-of]
  * [http://www.xml.com/pub/a/2002/04/10/xslt2.html What is New in XSLT 2]
-
+ * [http://www.w3.org/TR/xslt20/ XSLT 2 Specification at W3C] 
+ * Michael Kay
