@@ -1,0 +1,14 @@
+= Using CPAN = 
+ 
+CPAN is a repository of installation libraries for PERL and also a shell to support the installation process. The CPAN shell allows the file to be downloaded from the available repository and also should start the compile process. This can be very good -- or not sometimes. 
+
+== Installing Text::Wikitext ==
+
+ * perl -MCPAN -e 'shell' 
+ * install Text::WikiText
+ * // This should get the Wikitext-perl-1.01.tar.gz and install it
+
+== References == 
+
+ * http://www.troubleshooters.com/codecorn/littperl/perlcpan.htm
+

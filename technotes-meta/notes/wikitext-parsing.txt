@@ -1,0 +1,19 @@
+= My Github-based WIKI = 
+ 
+ * by Marcio Galli 
+ * With puslishing too! 
+
+== Introduction == 
+
+Some investigation on how to parse WIKI format. This document aims to build a very simple infra-structure where developers can parse wiki model to XML, then use XSLT to generate pages. I wanted to have a wiki where source is inserted via GIT, using GitHub. 
+
+== Installation PERL Text::WikiText ==
+
+ * [cpan-text-wikitext] 
+
+== Reference  == 
+
+ * http://www.openwiki.com/ow.asp?OpenWiki%2FXmlFormatting
+ * wikitext
+ * Java wikitext parsing - http://code.google.com/p/java-wikipedia-parser/
+

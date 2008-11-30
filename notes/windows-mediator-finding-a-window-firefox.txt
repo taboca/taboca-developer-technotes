@@ -1,0 +1,22 @@
+= Using Windows Mediator to find specific FF windows in Firefox ==
+
+This technote is part of my investigation to update my extension. I needed to create an UI that allows the end-user to pick one of the browser windows or any chrome window lauched from the main window, for example the Preferences panel, About panel, etc. 
+
+== nsIWindowMediator ==
+
+With this interface you can enumarate any opened window. When you try to enumerate you will need to set the windowtype so you specify which type of window you are looking for. If you want to go through al the windows, just use windowtype string equals to "" 
+
+ var wm = Components.classes["@mozilla.org/appshell/window-mediator;1"]
+                   .getService(Components.interfaces.nsIWindowMediator);
+ var enumerator = wm.getEnumerator("");
+ while(enumerator.hasMoreElements()) {
+  var win = enumerator.getNext();
+  // win is your window...
+ }
+
+
+ * https://developer.mozilla.org/en/nsIWindowMediator
+ * http://xulplanet.com/references/objref/ChromeWindow.html
+ * https://developer.mozilla.org/en/XUL/Attribute/windowtype
+
+

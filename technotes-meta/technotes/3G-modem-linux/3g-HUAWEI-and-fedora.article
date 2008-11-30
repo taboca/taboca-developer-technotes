@@ -1,0 +1,28 @@
+== Configuring 3G with Fedora using HUAWEI modem ==
+
+ This is the modem that comes with the Claro service in Brazil so the following script worked fine when we tested with Fedora. This is using wvdial. When the connection happens you may need to set the DNS manually. 
+
+== wvdial.conf changes ==
+
+ [Dialer Defaults]
+ Init1 = ATX3
+ Init2 = ATQ0 V1 E1 S0=0 &C1 &D2
+ Init3 = AT+CGDCONT=1,"IP","claro.com.br"
+ Modem Type = Analog Modem
+ Baud = 460800
+ New PPPD = yes
+ Modem = /dev/ttyUSB0
+ ISDN = 0
+ Phone = *99***1#
+ Dial Command = ATDT
+ Username = claro
+ Password = claro
+ Stupid Mode = 1
+ Auto DNS = 0
+ Check DNS = 0
+
+== References ==
+
+ * [Technote from Guto http://gutocarvalho.net/mediawiki/index.php/Instalando_e_configurando_CLARO_3G_no_Ubuntu] 
+
+

@@ -1,0 +1,23 @@
+== Keys for GitHub ==
+
+ssh-keygen 
+
+Place the keys in the .ssh your public and private. Place the public key to the github web site. 
+
+== Local Git Repository ==
+
+ git initdb
+ .gitignore file  ( You can type file/* ) 
+
+== Working with git basic ==
+
+git add
+git status
+git commit -a 
+
+== Synchronize with the remote repository ==
+
+git clone git@github.com:taboca/ladyqa-extension-for-firefox.git
+ 
+The above example is for one of the Taboca projects. 
+
