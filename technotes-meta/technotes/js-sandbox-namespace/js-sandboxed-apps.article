@@ -1,6 +1,6 @@
 (draft) 
 
-= Evolving Interoperable Extensions = 
+= Evolving Interoperable Extensions =
 
 == Motivation ==
 
@@ -12,7 +12,7 @@ At this point this effort goes on with documentation and development pattern. I 
 
 One recommended approach is to use JavaScript to detect. 
 
-=== DOM Inspector === 
+=== DOM Inspector ===
 
 DOM Inspector is still a recommended tool to inspect chrome in Firefox. 
 

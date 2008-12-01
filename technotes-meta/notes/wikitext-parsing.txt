@@ -16,4 +16,5 @@ Some investigation on how to parse WIKI format. This document aims to build a ve
  * http://www.openwiki.com/ow.asp?OpenWiki%2FXmlFormatting
  * wikitext
  * Java wikitext parsing - http://code.google.com/p/java-wikipedia-parser/
+ * [http://podius.wox.org/documentation/wikitext-spec.html Text::WikiText parser and wiki format specification]
 
