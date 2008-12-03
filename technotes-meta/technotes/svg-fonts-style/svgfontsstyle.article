@@ -4,14 +4,14 @@
 
 The following demonstration has a wave effect that is defined using SVG path, quadratic bezier curves. The text was further defined and applies in the path. There is a JavaScript window onload handler that calls a function which animates the text initial position over the path. 
 
- * [[http://www.telasocial.com/labs/widgets/header-waves-6/ | Demonstration]]
+ * [http://www.telasocial.com/labs/widgets/header-waves-6/ | Demonstration]
  
 You may need to reload the demo to see the text. At this point it does not loop in the wave. If you want to hack a similar demo, notice that if you create a path that is closed ( like a circle ) you won't be able to see the text rotating through the circle forever by just positining the initial point incrementally. Please feedback if you have ideas on how to make a very simple ticker app in SVG without cloning nodes. mgalli at mgalli dot com.  
 
 == References ==
 
- * [[http://apike.ca/prog_svg_text.html | SVG Text]]
- * [[http://apike.ca/prog_svg_paths.html | Bezier Curves]]
+ * [http://apike.ca/prog_svg_text.html | SVG Text]
+ * [http://apike.ca/prog_svg_paths.html | Bezier Curves]
  *  
 
 
