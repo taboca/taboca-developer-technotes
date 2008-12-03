@@ -13,7 +13,7 @@ Some investigation on how to parse WIKI format. This document aims to build a ve
 
 == Reference  == 
 
- * http://www.openwiki.com/ow.asp?OpenWiki%2FXmlFormatting
+ * [[http://www.openwiki.com/ow.asp?OpenWiki%2FXmlFormatting|Open Wiki Formatting]]
  * wikitext
  * Java wikitext parsing - http://code.google.com/p/java-wikipedia-parser/
 
