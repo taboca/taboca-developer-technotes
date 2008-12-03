@@ -15,8 +15,11 @@ The current target platform to run Fennec is to have a Nokia N810 ( OS2008 / Mae
 
 Fennec has: 
 
- * 
+ * Chrome-based ( as in XUL Chrome ) User Interface Layer 
+ * Works on top of XULRunner 
+ * XULRunner infra for Nokia ( N810 for now ) optimizations and some low level APIs / XPCOM components for things like GPS etc 
 
+This articles focuses in the XUL/Chrome part of it. 
 
 == Other reading ==
 
