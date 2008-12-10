@@ -2,7 +2,7 @@
 
 Make sure you have a JDK system working and path environment variables. 
 
- * [http://xmlgraphics.apache.org/batik/download.cgi#Subversion+repository Download Batik source]
+ * [http://xmlgraphics.apache.org/batik/download.cgi#Subversion+repository | Download Batik source]
  * Make sure you have Ant
  * ant compile
  * ant jars
@@ -53,6 +53,7 @@ Notice these are some of the batik lib files you may need. If you get other erro
 |          <pathelement location="./lib/batik-transcoder.jar" />
 |          <pathelement location="./lib/batik-rasterizer.jar" />
 |          <pathelement location="./lib/xml-apis-ext.jar" />
+|          <pathelement location="./lib/xml-apis.jar" />
 |          <pathelement location="./lib/RasterizerTask.jar" />
 |        </classpath>
 |      </taskdef>
