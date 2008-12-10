@@ -1,0 +1,17 @@
+
+== Loading XML documents and applying transformations from XSLT  ==
+
+== document function ==
+
+You can use xpath-defined functions to load the document. An example is: 
+
+| <xsl:value-of select="document('subdocument.xml')/author/name"/>
+
+The following example could be used from an iteraction and allows a template to executed for the contents of many documents: 
+
+|    <xsl:apply-templates select="document(concat(.,'.xml'))"/>
+
+== References ==
+
+ * [http://www.ibm.com/developerworks/xml/library/x-tipcombxslt/ | Combining documents with XSLT] 
+ * [http://www.w3.org/TR/xslt20/ XSLT 2 Specification at W3C] 
