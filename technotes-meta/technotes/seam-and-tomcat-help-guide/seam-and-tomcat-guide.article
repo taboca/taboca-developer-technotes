@@ -8,7 +8,7 @@ A JBoss' Seam app can run on top of Tomcat which is not the default configuratio
 
  * [http://www.seamframework.org/Download | Download Seam from here]
  * [http://tomcat.apache.org/download-60.cgi | get Tomcat] ( needs to be 5.5+ )
- * [http://java.sun.com/javaee/sdk/ | Get Java SDK ]
+ * [http://java.sun.com/javaee/sdk/ | Get Java SDK]
 
 == Going full for Tomcat ==
 
@@ -38,7 +38,5 @@ You can go directly to the examples directory YOUR_JBOSS_SEAM_PATH/examples, for
  * [http://weblogs.java.net/blog/bleonard/archive/2006/06/running_jboss_s.html | Integrating Seam app no SUN GlassFish]
  * [http://www.jboss.com/index.html?module=bb&op=viewforum&f=231 | Discussion Forum] 
  * [http://www.jboss.org/community/docs/DOC-12410 | JBoss Seam Documentation]
- * [http://www.onjava.com/lpt/a/2826 | Apache talking with Tomcat   ] 
-
-
+ * [http://www.onjava.com/lpt/a/2826 | Apache talking with Tomcat] 
 
