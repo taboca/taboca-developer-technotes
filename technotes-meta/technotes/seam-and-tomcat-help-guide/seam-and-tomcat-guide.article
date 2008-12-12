@@ -1,0 +1,44 @@
+= Seam and Tomcat Guide =
+
+== Introduction ==
+
+A JBoss' Seam app can run on top of Tomcat which is not the default configuration. You will need to install certain JBoss libraries and Seam libraries to get it working properly. Also notice that you will need a JDK 1.5 in your environment. This is a requirement because Seam uses a JDK 1.5 feature named Annotations. 
+
+== Required Packages ==
+
+ * [http://www.seamframework.org/Download | Download Seam from here]
+ * [http://tomcat.apache.org/download-60.cgi | get Tomcat] ( needs to be 5.5+ )
+ * [http://java.sun.com/javaee/sdk/ | Get Java SDK ]
+
+== Going full for Tomcat ==
+
+As [http://www.michaelyuan.com/blog/2007/07/24/seam-20-and-tomcat/ | Michael Yuan] points out, if you want to use EJB3 then you will need to configure the [http://www.jboss.org/community/docs/DOC-9687 | Embedded JBoss for Tomcat] which is provided for Tomcat 5.x and 6.0.x. You can [http://sourceforge.net/project/showfiles.php?group_id=22866&package_id=228977 | install the embedded JBoss from here]. After that you should copy some files to your tomcat li directory:
+ 
+ * Copy all files from embedded-jboss/boostrap to your tomcat's lib, except jndi.properties
+ * Copy all embedded-jboss/lib jar files to your tomcat's lib 
+ * remove Apache's lib/annotations-api.jar
+ * [http://www.jboss.org/community/docs/DOC-12413 | These file copy instructions were taken from here]
+
+== Prepare the build process to support Tomcat ==
+
+ * Edit build.properties file from your root JBoss Seam path
+ * add the following lines: 
+
+| jboss.home YOUR_JBOSS_SEAM_PATH
+| tomcat.home YOUR_TOMCAT_HOME
+
+== Setup a working example in Tomcat ==
+
+You can go directly to the examples directory YOUR_JBOSS_SEAM_PATH/examples, for example the booking example, and type: 
+
+ * ant tomcat.deploy
+ 
+== References ==
+ * [http://www.jboss.org/jbossseam/faq/index.html#tomcat | JBoss Seam FAQ Tomcat note]
+ * [http://weblogs.java.net/blog/bleonard/archive/2006/06/running_jboss_s.html | Integrating Seam app no SUN GlassFish]
+ * [http://www.jboss.com/index.html?module=bb&op=viewforum&f=231 | Discussion Forum] 
+ * [http://www.jboss.org/community/docs/DOC-12410 | JBoss Seam Documentation]
+ * [http://www.onjava.com/lpt/a/2826 | Apache talking with Tomcat   ] 
+
+
+
