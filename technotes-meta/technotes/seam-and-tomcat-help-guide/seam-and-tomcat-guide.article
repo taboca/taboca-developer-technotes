@@ -19,6 +19,10 @@ As [http://www.michaelyuan.com/blog/2007/07/24/seam-20-and-tomcat/ | Michael Yua
  * remove Apache's lib/annotations-api.jar
  * [http://www.jboss.org/community/docs/DOC-12413 | These file copy instructions were taken from here]
 
+Connect JBoss Embedded in server.xml
+
+ * <a href="http://docs.jboss.com/seam/latest/reference/en-US/html/configuration.html#config.install.embedded">Follow this steps</a>
+
 == Prepare the build process to support Tomcat ==
 
  * Edit build.properties file from your root JBoss Seam path
