@@ -1,0 +1,72 @@
+
+== SeamInfra Application Sample ==
+
+ * Doc by Marcio 
+ * Mentorship by Roger @ intelinet.com.br  
+ * SeamInfra GitHub project example by Roger Soares @ intelinet.com.br
+
+Roger, from intelinet.com.br, is helping me to learn Seam so he decided to make it a sort of open effort. His project is a sample application now available at github.com. Over time Roger is also updating the application with more features, so possibly we could RePlay all the events in time from Git - let's think about that. Meanwhile this documentation, from today also kept in GitHub and git-reflected at dev2.taboca.com, aims to follow the code. This documentation is my understanding, as a student from Roger's process. I hope you can enjoy, learn, and also fix my bugs here in the documentation. 
+
+== Agenda == 
+
+First get a working linux box and prepare it with Tomcat 6.* JDK 1.6+, ant stable. I moved some postgresql install instructions and initial DB here since it was not as simple as 1 step installation as Tomcat, JDK, and ANT. 
+
+ * Pre-requisite : Apache Tomcat 6.* installed 
+ * Pre-requisite : Apache ANT 
+ * Pre-requisite : Java JDK 1.6+
+ * SeamInfra installation ( a Webapp for Tomcat ) 
+ * PostgreSql install and DB setup
+ * Initial Tests
+
+== Get SeamInfra project ==
+
+ * [http://github.com/rogersoares/seaminfra/tree/master | SeamInfra Web app project] 
+  
+ You will need to checkout from github with the git clone URL
+
+| git clone  git://github.com/rogersoares/seaminfra.git
+
+ This should bring a directory named seaminfra to your local path. Move or copy this directory to your tomcat location, under the webapps directory. 
+
+== PostgreSql install ==
+
+ * apt-get install postgresql
+ * su postgres (if the user does not exist then create it with adduser ) 
+ * createdb taboca ( this needs to be the db name for now, otherwise you will need to modify the SeamInfra db configuration files -- we may fix this -- maybe we can teach first how to hack the SeamInfra DB config..) 
+ * psql taboca
+ * pasted the dbcreation.sql script in WEB-INF/resources
+ * \q ( exit psql ) 
+
+== Initial Setup to Postgres ==
+
+
+If you try to connect from the localhost you may get an error since by default it requires password:
+
+| psql -U postgres -h localhost taboca
+
+So it is important to change a few files so the app can connect without a password. In this case the postgresql install was set with apt-get in Ubuntu, so the location of the config files was set to /etc/postgresql/8.3/main. In this directory you will find a few configuration files. First we need to enable connections via socket from localhost: 
+
+ * edit /etc/postgresql/8.3/main/postgresql.conf
+ * Uncomment the following line or edit it to look like this: 
+
+| listen_addresses = 'localhost'
+
+Now we need to allow connections from postgres user without password verification - for the purposes of this demonstration: 
+
+ * edit /etc/postgresql/8.3/main/pg_hba.confo
+ * Modify these lines so is says trust in the 4th column
+
+| host    all         all         127.0.0.1/32          trust
+| host    all         all         ::1/128               trust
+
+== Start tomcat == 
+
+ * Start tomcat /usr/local/tomcatDIR/bin/startup.sh ( Make sure you have the CLASSPATH JDK_HOME ) 
+ * Watch out the catalina.out under /user/local/tomcatDIR/logs 
+
+== References ==
+
+ * [http://user.it.uu.se/~rsomla/db2001/tips.html | PostgreSql psql tips]
+ * [http://www.linuxhelp.net/guides/postgresql/] Postgresql make and initial user and setup]
+
+
