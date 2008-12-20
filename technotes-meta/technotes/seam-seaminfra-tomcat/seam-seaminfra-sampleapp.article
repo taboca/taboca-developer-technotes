@@ -1,4 +1,3 @@
-
 == SeamInfra Application Sample ==
 
  * Doc by Marcio 
@@ -7,7 +6,7 @@
 
 Roger, from intelinet.com.br, is helping me to learn Seam so he decided to make it a sort of open effort. His project is a sample application now available at github.com. Over time Roger is also updating the application with more features, so possibly we could RePlay all the events in time from Git - let's think about that. Meanwhile this documentation, from today also kept in GitHub and git-reflected at dev2.taboca.com, aims to follow the code. This documentation is my understanding, as a student from Roger's process. I hope you can enjoy, learn, and also fix my bugs here in the documentation. 
 
-== Agenda == 
+== Agenda ==
 
 First get a working linux box and prepare it with Tomcat 6.* JDK 1.6+, ant stable. I moved some postgresql install instructions and initial DB here since it was not as simple as 1 step installation as Tomcat, JDK, and ANT. 
 
@@ -39,7 +38,6 @@ First get a working linux box and prepare it with Tomcat 6.* JDK 1.6+, ant stabl
 
 == Initial Setup to Postgres ==
 
-
 If you try to connect from the localhost you may get an error since by default it requires password:
 
 | psql -U postgres -h localhost taboca
@@ -59,7 +57,7 @@ Now we need to allow connections from postgres user without password verificatio
 | host    all         all         127.0.0.1/32          trust
 | host    all         all         ::1/128               trust
 
-== Start tomcat == 
+== Start tomcat ==
 
  * Start tomcat /usr/local/tomcatDIR/bin/startup.sh ( Make sure you have the CLASSPATH JDK_HOME ) 
  * Watch out the catalina.out under /user/local/tomcatDIR/logs 
