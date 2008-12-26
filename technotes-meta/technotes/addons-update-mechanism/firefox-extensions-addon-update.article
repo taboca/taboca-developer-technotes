@@ -1,0 +1,124 @@
+= Enabling Updates to your Addon Extension =
+
+== Prepare to host the update.rdf file  ==
+
+ You will need to host the update.rdf file with right mime-type in your server. If you are using Apache use "Addtype text/xml rdf"  in your .htaccess or the /etc/mime type files. 
+
+== Check mime-types for RDF, XPI, jars  ==
+
+ Remember the right mime-type of the extension XPI file to be AddType application/x-xpinstall .xpi. If you are hosting a jar ( which is the case in this example, since I am hosting a theme ) also check the jar mime-types on the server.  
+
+== Put the updateURL in your install.rdf file ==
+
+| <em:updateURL>http://yourserverlocation/update.rdf file</em:updateURL>
+
+== Example of an install.rdf file ==
+
+| <?xml version="1.0"?>
+| <RDF:RDF xmlns:em="http://www.mozilla.org/2004/em-rdf#"
+|          xmlns:NC="http://home.netscape.com/NC-rdf#"
+|          xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+|   <RDF:Description RDF:about="urn:mozilla:install-manifest"
+|                    em:id="themename@mycompany.com"
+|                    em:version="1.0.0"
+|                    em:name="My Theme name " 
+|                    em:description="Description goes here" 
+|                    em:creator="www.mycompany.com"
+|                    em:homepageURL="http://www.mycompany.com"
+| 
+|                    em:internalName="themename_mycompany"
+|                    em:updateURL="http://www.mycompany.com/downloads/update.rdf"
+|                    em:updateKey="_____ McCOY TOOL WILL PUT A SIGNATURE HERE ____">
+|     <em:targetApplication RDF:resource="rdf:#$Zz+3b2"/>
+|   </RDF:Description>
+|   <RDF:Description RDF:about="rdf:#$Zz+3b2"
+|                    em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+|                    em:minVersion="3.0"
+|                    em:maxVersion="3.1b2" />
+| </RDF:RDF>
+
+
+== Add signature key to install.rdf using McCoy   ==
+
+[https://developer.mozilla.org/en/McCoy | Download McCoy tool] and place the generated key in the updateKey tag of your install.rdf file. The McCoy tool can install the key in the file and organized it as you will see. You will notice the install.rdf file only carries this key information. The file itself is not used to generate the key - it's just a placeholder. So when you update your addon you won't need to keep generating or signing this file. You can simply edit install.rdf by hand and update the version to reflect the extension. However the update.rdf is another story. Update rdf needs to be signed with the key. 
+
+Then reopen the install.rdf file and notice the key public information in the updateKey element. 
+
+== Structure of the update.rdf file ==
+
+Notice the 3.1b2 being Firefox current version, 1.0.0 is the version of the " actual " extension, 1.0.1 to be the next release we want to inform user and update. Also notice the use of the urn:mozilla:theme which is for themes only. If you want to update an extension change this from 'theme' to 'extension'. 
+
+| 
+| <?xml version="1.0"?>
+| <RDF:RDF xmlns:em="http://www.mozilla.org/2004/em-rdf#"
+|          xmlns:NC="http://home.netscape.com/NC-rdf#"
+|          xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+| 
+| <RDF:Description about="urn:mozilla:theme:extension_ID@extension_ID_company.com">
+|     <em:updates>
+|       <RDF:Seq>
+|         <RDF:li resource="my_extension_name:1.0.0"/>
+|         <RDF:li resource="my_extension_name:1.0.1"/>
+|       </RDF:Seq>
+|     </em:updates>
+|   <em:signature>___ THIS WILL BE POPULATED LATER BY THE McCoy tool ___</em:signature>
+| </RDF:Description>
+| 
+|         <RDF:Description about="my_extension_name:1.0.0">
+|             <em:version>3.0.0</em:version>
+|             <em:targetApplication>
+|               <RDF:Description>
+|                 <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+|                 <em:minVersion>3.0</em:minVersion>
+|                <em:maxVersion>3.1b2</em:maxVersion>
+|                 <em:updateLink>http://www.my_extension_name/downloads/previousfile.jar</em:updateLink>
+|               </RDF:Description>
+|             </em:targetApplication>
+|           </RDF:Description>
+| 
+|        <RDF:Description about="my_extension_name:1.0.1">
+|             <em:version>3.0.1</em:version>
+|             <em:targetApplication>
+|               <RDF:Description>
+|                 <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+|                 <em:minVersion>3.0</em:minVersion>
+|                 <em:maxVersion>3.1b2</em:maxVersion>
+|                <em:updateLink>http://www.my_extension_name/downloads/newfile.jar</em:updateLink>
+|           <em:updateHash>___ YOU WILL NEED TO POPULATE THIS AFTER RUN SHA1DEEP tool __</em:updateHash>
+| 
+|               </RDF:Description>
+|             </em:targetApplication>
+|           </RDF:Description>
+| 
+| </RDF:RDF>
+
+
+== Update update.rdf again with the sha1  ==
+
+You will need to add an element to the update rdf file which reveals the integrity information for the jar file that is to be downloaded. I have used sha1deep application which you can [http://md5deep.sourceforge.net/ | download from here] and works in linux.  After you install the app ( you may need to build from source ) identify the file you want to associate the key and type: 
+
+| sha1deep newfile.jar
+
+This should generate a sha1 number. Copy and paste to an element like this: 
+
+|    <em:updateHash>___ YOU WILL NEED TO POPULATE THIS AFTER RUN SHA1DEEP tool __</
+
+..under the section that refers to the same download version.
+
+== Use the McCoy tool again to Sign update.rdf file ==
+
+However now you will use the McCoy sign option over this update.rdf file. You will notice McCoy adds a signature. Ah! voila now you signed the file which has the file integrity hash. 
+
+
+== Host update.rdf == 
+
+ Host the file using the same URL you added in install.rdf and expect it to work. If this article gives you trouble ping me mgalli at mgalli . com - Subject Addon Update Mechanism. It worked for me perfectly. 
+
+== References ==
+ * [http://roachfiend.com/archives/2005/03/09/enabling-extension-updates/ | Enabling Extension Updates] 
+ * [https://developer.mozilla.org/En/Generating_GUIDs | Generating GUIDs]  
+ * [https://developer.mozilla.org/en/McCoy | McCoy signing tool]
+ * [https://developer.mozilla.org/en/Extension_Versioning%2c_Update_and_Compatibility#Update_RDF_Format | Update information for Extensions]
+ * [http://md5deep.sourceforge.net/ | md5deep ] 
+
+

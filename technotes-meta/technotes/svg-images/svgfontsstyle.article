@@ -1,0 +1,29 @@
+= Working with SVG Images =
+
+== Basic of an SVG document coordinates ==
+
+An SVG document with width and height attributes ( only ) means the viewbox is equal to the defined width and height. You can define a virtual ( let's say real ) viewbox with the ViewBox attribute. 
+
+== The viewBox  attribute== 
+
+
+== Image Small loading a bigger image ==
+
+=== Rescaling ===
+
+=== Loading a clipped area ===
+
+
+== preserveAspectRatio="xMinYMin meet" == 
+
+
+
+== References ==
+ * [http://www.w3.org/TR/SVG/coords.html | Coordinate SVG spec]
+ * [http://apike.ca/prog_svg_images.html | SVG images basic Attributes]
+ * [http://apike.ca/prog_svg_text.html | SVG Text]
+ * [http://apike.ca/prog_svg_paths.html | Bezier Curves]
+ *  
+
+
+
