@@ -110,7 +110,7 @@ This should generate a sha1 number. Copy and paste to an element like this:
 However now you will use the McCoy sign option over this update.rdf file. You will notice McCoy adds a signature. Ah! voila now you signed the file which has the file integrity hash. 
 
 
-== Host update.rdf == 
+== Host update.rdf ==
 
  Host the file using the same URL you added in install.rdf and expect it to work. If this article gives you trouble ping me mgalli at mgalli . com - Subject Addon Update Mechanism. It worked for me perfectly. 
 
@@ -119,6 +119,6 @@ However now you will use the McCoy sign option over this update.rdf file. You wi
  * [https://developer.mozilla.org/En/Generating_GUIDs | Generating GUIDs]  
  * [https://developer.mozilla.org/en/McCoy | McCoy signing tool]
  * [https://developer.mozilla.org/en/Extension_Versioning%2c_Update_and_Compatibility#Update_RDF_Format | Update information for Extensions]
- * [http://md5deep.sourceforge.net/ | md5deep ] 
+ * [http://md5deep.sourceforge.net/ | md5deep ]
 
 
