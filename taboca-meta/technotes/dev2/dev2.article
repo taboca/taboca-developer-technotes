@@ -1,0 +1,4 @@
+== Technotes generated using Git  ==
+
+Our [http://dev2.taboca.com | Web developer technotes] are now generated from Git public repositories. This system takes the incoming git technote sources and generates the HTML output using wiki format. 
+
