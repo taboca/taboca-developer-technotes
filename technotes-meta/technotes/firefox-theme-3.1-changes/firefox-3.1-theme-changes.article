@@ -1,0 +1,34 @@
+= Theme channges in Firefox 3.1 =
+
+ * by Marcio Galli 
+
+== Overview theme changes from 3 to 3.1 ==
+
+
+== XBL bindings for draggable chrome == 
+
+The pinstripe theme allows the end user to click on theme empty areas and drag the window. This function make Firefox window dragability more like the other Apple apps. The XBL binding that enables this function is located in the global.css. If you put this XBL binding in Firefox 3.0 you will should expect toolbars to disappear. 
+
+ * Search for XBL binding ' draggable ' in the global. css
+ 
+
+== Tabs ==
+
+Tabs are simpler now and won't have the multiple images anymore. If you had a theme with multiple images ( left, middle, right ) you will need to put an overlay to the tabbrowser-tab element again - and beware this could do well do your theme but also regress Firefox function. And if you go in the direction of Tab changes ( which is my case and I am taking the risk or learning curve ) make sure you check what other Tab extensions are doing - like the color tabs one. 
+
+=== Marcio add the sample code to the tab binding overlay here ===
+
+
+== Viewbuttons . css and view group elements ==
+
+Some of the app panels, such as the extensions ( addons ) window popup, now displays a set of buttons at the top and you may find this against the app in other places. If you check mozapps/extensions.css you will see a *new* css file being imported at the top - viewbuttons.css which is under global. 
+
+* You will find new viewbuttons under global/toolbar
+* These now are using -moz-border-image 
+
+
+== References ==
+
+ * [https://developer.mozilla.org/en/Theme_changes_in_Firefox_3.1 MDC theme changes in 3.1]
+ * [] 
+
