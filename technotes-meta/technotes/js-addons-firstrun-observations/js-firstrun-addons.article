@@ -1,0 +1,33 @@
+(draft) 
+
+= Firstrun Welcome pages in Firefox Addons  =
+
+== Motivation ==
+
+The firstrun first ever function I developed was in Mozilla Minimo ( the old mobile prototype from Mozilla.) Dougt has asked me to create a general first run function to be used in extensions as a reusable element. The original code was pretty simple - just a check against an existing pref and voila - showed to be something good. 
+
+The demand for first run function is going up. Here is an interesting ( yet extreme ) scenario: you are using certain Wizard Wrapper app ( Fashion your Firefox sort of ) which wraps certain extensions in a bundle and all of them launching a new tab with a Welcome page. The more apps are willing to use first run function it's time for us to start organizing this. Certainly as the browser continues to improve as a hub for offline/extensions and online/offline apps, more we see the need for organized functions for the tied apps. FUEL presents itself in a way to be simple for developer ( easy DOM "zero" like interfaceis ). Maybe FUEL could grow a bit to be more like the interoperator API for extensions. Multiple firstrun living together is an example where conflicts may exist. These are all scenarios for extension interoperability and management.  
+
+== Implementing a Welcome page after an Extension is Installed  ==
+
+This section shows an implementation scenario where a firstrun Welcome page can be implemented. Notice this also does not offer the best solution. The good thing here is that this code is friendly with session store restore function. Notice that when you install an extension, Firefox extension manager shows up and asks the end-user to restart. When the browser comes back the session store function brings all the tabs back. 
+
+If you try to launch a Tab in your first run function you will see that addTab may not display the expected Welcome page. This happens because the sessionstore restore function is busy and working launching tabs. I don't know if the addTab was trapped or if we have a bug - (please help to fix this paragraph. )
+
+The workaround is to wait the sessionstore to recover the tabs then you can launch your Welcome with addTab. Here is the code snippet which uses an observer and observes the sessionstore-windows-restore event: 
+
+|        PrepareToLaunch: function () {
+|                sessionRestoreObserve =  {
+|                        observe: function(subject, topic, data) {
+|                        com.taboca.myextension.tryLaunchWelcome();
+|                }
+|                this.obsSvc.addObserver( sessionRestoreObserve,  "sessionstore-windows-restored" , false);
+|        }
+
+You can call PrepareToLaunch in your existing first run function. You are probably using a preference to keep the version you are. 
+
+== Resources and Recommendations ==
+
+* [https://developer.mozilla.org/en/Session_store_API  | Session Store API]
+* [http://forums.mozillazine.org/viewtopic.php?f=48&t=831545&start=165&st=0&sk=t&sd=a Extension Manager | Windows Restored]
+* [http://autonome.wordpress.com/ Dietrich Ayala guidance]
