@@ -1,0 +1,21 @@
+= Creating Content Handlers for Feeds in Firefox =
+
+== about:config screen ==
+
+browser.contentHandlers.types.#.title = Netvibes
+browser.contentHandlers.types.#.type = application/vnd.mozilla.maybe.feed
+browser.contentHandlers.types.#.uri = http://www.netvibes.com/subscribe.php?url=%s
+
+== JavaScript Interfaces to Register a New Feed ==
+
+ navigator.registerContentHandler("application/vnd.mozilla.maybe.feed",
+                                 "http://www.theeasyreaderurl.com?feed=%s",
+                                 "Easy Reader");
+
+
+== References ==
+
+ * [https://developer.mozilla.org/en/Adding_feed_readers_to_Firefox | Adding Feed Handlers at MDC]
+ * [http://kb.mozillazine.org/Browser.contentHandlers.types.*.type | Mozillazine contentHandlers]
+
+
