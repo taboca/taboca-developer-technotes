@@ -1,0 +1,16 @@
+= Developer information on Security restrictions in XULRunner =
+
+XULRunner 1.9.* is based on Gecko 1.9 so you may find additional security restrictions. 
+
+== XMLHTTPRequest to load documents from different domain ==
+
+
+
+
+== References ==
+ * [https://developer.mozilla.org/En/XULRunner | XULRunner main page]
+ * [http://www.nabble.com/xulrunner-security-w--local-and-remote-files-td17152333.html | XULRunner and netscape.security.PriviledgeManager]
+ * [irc://irc.mozilla.org/#xulrunner | XULRunner chanel on irc.mozilla.org] 
+
+
+
