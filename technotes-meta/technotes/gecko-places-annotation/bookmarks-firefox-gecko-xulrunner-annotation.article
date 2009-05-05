@@ -6,26 +6,26 @@
 
 The annotation service provides storage information in some organized way. You can annotate things on pages ( URI ) or items. The item format is an unique id you can get from bookmark elements for example - the existing bookmark elements of Firefox.
 
-== Sample Code == 
+== Sample Code ==
 
-  //var uri = this.ios.newURI(pageURL, null, null);
-
-  var annotationService = Components.classes["@mozilla.org/browser/annotation-service;1"].getService(Components.interfaces.nsIAnnotationService);
-  var existant = annotationService.getPageAnnotation(uri, nameSpaceKey) ;
-  if(existant) {
-    return true;
-  }
-  annotationService.setPageAnnotation(uri, nameSpaceKey , state , 0, 0);
-  return false;
+|  //var uri = this.ios.newURI(pageURL, null, null);
+|
+|  var annotationService = Components.classes["@mozilla.org/browser/annotation-service;1"].getService(Components.interfaces.nsIAnnotationService);
+|  var existant = annotationService.getPageAnnotation(uri, nameSpaceKey) ;
+|  if(existant) {
+|    return true;
+|  }
+|  annotationService.setPageAnnotation(uri, nameSpaceKey , state , 0, 0);
+|  return false;
 
 Notice this example returns true if the page' uri item has some annotation in the places annotations database, otherwise it returns false. The nameSpaceKey parameter is a key. The usage standard format, at this point, is like this: 
 
- domain/subdomain 
+| domain/subdomain 
 
 And this should be a string value. You should also avoid using weird characters - use plain alpha characters and - and _ only. This format is not enforced however it looks like some organization could lead to easy to query operations and extensions could easily query annotations from others - most likely some xpath-like selector libs would be offered.
 
 == References ==
 
- * [https://developer.mozilla.org/en/Using_the_Places_annotation_service Using Places Annotation Service]
- * [https://developer.mozilla.org/en/Storage Moz Storage] 
+ * [https://developer.mozilla.org/en/Using_the_Places_annotation_service | Using Places Annotation Service]
+ * [https://developer.mozilla.org/en/Storage | Moz Storage] 
 
