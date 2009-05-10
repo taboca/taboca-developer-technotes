@@ -1,0 +1,3 @@
+Customization and Deployment of Firefox 
+
+* https://wiki.mozilla.org/Deployment:Deploying_Firefox
