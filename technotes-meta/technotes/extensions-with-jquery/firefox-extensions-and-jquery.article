@@ -1,0 +1,16 @@
+= Using jQuery in Extensions =
+
+== Overview ==
+
+If you are planning to use jQuery in your Firefox extension, make sure you check a few things to keep your virtually in your sandbox and avoid conflict to other extensions. When you launch a new window with jQuery.js included you should be fine. The major concern is when you include a Javascript file via overlays in application windows that may share other existing code - such as the main browser window. 
+
+
+
+== References ==
+ * [http://forums.mozillazine.org/viewtopic.php?f=19&t=573104&start=0&st=0&sk=t&sd=a | Using JQuery in firefox extension - MozillaZine ]
+ * [http://docs.jquery.com/Downloading_jQuery | Download jQuery ]
+ * [http://gluei.com/blog/view/using-jquery-inside-your-firefox-extension | Using jQuery from your Extension]
+ * [http://jquery.com/ | jQuery] 
+
+
+
