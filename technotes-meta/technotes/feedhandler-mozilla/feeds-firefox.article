@@ -1,0 +1,56 @@
+= Working with Feed Handlers in Firefox =
+
+ * by Marcio Galli 
+
+== Introduction ==
+
+This article shows how to add a Feed Handler to Firefox. This can be used in case you are writing a Firefox extension that is a feed reader and you want to be able to add your extension as one of the feed handler options in Firefox. 
+
+== Prefs based system to add ==
+
+If you want to add our feed handler from an Firefox extension you can simply add your app registration values using the preferences service. Firefox maintains a list of preferences with each application handler. The preferences are: 
+
+ *  browser.contentHandlers.types.number.title 
+ *  browser.contentHandlers.types.number.type 
+ *  browser.contentHandlers.types.number.uri 
+
+Important: the above "number" should be a number. Type about:config in firefox and search for browser.contentHandlers and you should be able to check other pre-registered feed handlers you have. If you are to add your application as a feed handler you shoud add with number being the current number + 1. In order to check this you will need to use the preferences services in Firefox to retrieve the browser.contentHandlers.types.* list. 
+
+== Accessing the contentHandler preference values ==
+
+You will need to go through the elements of the browser.contentHandlers branch in the user preferences to check which is the higher number and add your to it. 
+
+| // Get the "extensions.myext." branch
+| var prefs = Components.classes["@mozilla.org/preferences-service;1"]
+|                     .getService(Components.interfaces.nsIPrefService);
+| prefs = prefs.getBranch("browser.contentHandlers.");
+
+Here is some sample code that sort of gets the most recent feed number: 
+
+|       var bprefs = prefs.getBranch("browser.contentHandlers.");
+|       var results = {};
+|       var listChild = bprefs.getChildList("",results);
+|       var maxNumber=0;
+|       for (var i=0;i<listChild.length;i++) {
+|               var midString = listChild[i].split(".")[1];
+|               var number  = parseInt(midString.split(".")[0]);
+|               if(number>=maxNumber) {
+|                       maxNumber= number;
+|               }
+|       }
+
+Then you should set your app at the end:
+
+
+|        psvc.setCharPref("browser.contentHandlers.types." +maxNumber+1 +".title", "Motion" );
+|        psvc.setCharPref("browser.contentHandlers.types."+maxNumber+1 +".type", "application/vnd.mozilla.maybe.feed" );
+|        psvc.setCharPref("browser.contentHandlers.types."+maxNumber+1 +".uri", "about:motion?%s" );
+
+== References ==
+
+ * [https://developer.mozilla.org/En/Code_snippets/Preferences | Preferences Service]
+ * [https://wiki.mozilla.org/Firefox3/ContentManagement:Handlers#Registration | Firefox 3 docs on content handlers]
+ * [https://developer.mozilla.org/En/Adding_feed_readers_to_Firefox | Feed Handlers since Firefox 2]
+ * [https://developer.mozilla.org/Talk:En/DOM/Window.navigator.registerContentHandler | Feed Handler registration for Web pages]
+ * [http://www.whatwg.org/specs/web-apps/current-work/#custom-handlers | WhatWG spec on custom protocols and content handlers ]
+ * [https://developer.mozilla.org/en/NsIPrefBranch | nsIPrefBranch service]
