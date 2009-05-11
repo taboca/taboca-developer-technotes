@@ -1,0 +1,34 @@
+== jMonkey on Mac OS X  ==
+
+JMonkey is a Java-based Development Framework for 3D Games and 3D applications. This guide helps whoever wants to get it working on Mac OS X. 
+
+== Some dependencies check ==
+
+Make sure you have java and ant in your system. JMonkey will also be using some Java and native libraries which are part of another project, to render open GL and get the graphics going. You don't need to go after the other project as the files are bundled together, however you may need to make sure the library path is correct.
+
+== Basic JME install ==
+
+Download the source using svn using:
+
+| svn co http://jmonkeyengine.googlecode.com/svn/trunk jme
+
+With ant in your system, do ant dist-test
+
+Check the ./lib/lwjgl directory and expect the sub directory: 
+
+| native
+
+You will need to get this sub directory in the java.library.path when you can the command - aside from all the other needed jar files. 
+
+== Executing some Demo ( no audio for now )  ==
+
+*  java -cp ./lib/lwjgl/lwjgl.jar:./target/jme.jar:./target/jme-effects.jar:./target/jme-terrain.jar:./target/jme-scene.jar:./target/jme-awt.jar:./target/jmetest.jar  -Djava.library.path=./lib/lwjgl/native/macosx/  jmetest.effects.TestDynamicSmoker
+
+
+== LEt's keep going ? ==
+
+E-mail me mgalli at mgalli dot com 
+
+== References ==
+
+ * [http://www.jmonkeyengine.com/wiki/doku.php?id=chapter_1_-_getting_started | Getting Started Official]
